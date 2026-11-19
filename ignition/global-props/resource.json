@@ -1,0 +1,16 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModificationSignature": "869e48ddd740d70fc370f4ee95c4f7ffd63cadcfce2f10c1e83389638ddc604a",
+    "lastModification": {
+      "actor": "Kultida.prm",
+      "timestamp": "2026-11-19T05:45:23Z"
+    }
+  }
+}
