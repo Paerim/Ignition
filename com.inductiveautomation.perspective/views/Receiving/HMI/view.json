@@ -1,0 +1,633 @@
+{
+  "custom": {
+    "supplier": "ABC",
+    "truckNo": "",
+    "message": "",
+    "messageOk": true,
+    "rev": 0,
+    "data": {}
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 800,
+      "height": 480
+    }
+  },
+  "root": {
+    "type": "ia.container.coord",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "backgroundColor": "#FFFFFF",
+        "fontFamily": "Segoe UI, Tahoma, Arial, sans-serif"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "backgroundColor": "#14304A",
+            "alignItems": "center",
+            "padding": "0 16px"
+          }
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 0.09583
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Receiving HMI",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "22px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Clock"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#C9D8E6",
+                "fontSize": "16px",
+                "textAlign": "right"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "dateFormat(now(1000), 'dd/MM/yyyy HH:mm:ss')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Select"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "alignItems": "center",
+            "gap": "6px"
+          }
+        },
+        "position": {
+          "x": 0.02,
+          "y": 0.1125,
+          "width": 0.96,
+          "height": 0.09167
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "L1"
+            },
+            "props": {
+              "text": "Supplier",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "16px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "78px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.input.dropdown",
+            "version": 0,
+            "meta": {
+              "name": "Supplier"
+            },
+            "props": {
+              "options": [],
+              "placeholder": {
+                "text": "\u0e40\u0e25\u0e37\u0e2d\u0e01 Supplier"
+              },
+              "search": {
+                "enabled": false
+              },
+              "showClearIcon": false,
+              "style": {
+                "fontSize": "18px"
+              }
+            },
+            "position": {
+              "basis": "0",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.suppliers"
+                  }
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.supplier",
+                    "bidirectional": true
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "L2"
+            },
+            "props": {
+              "text": "Truck",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "16px",
+                "fontWeight": "bold",
+                "paddingLeft": "14px"
+              }
+            },
+            "position": {
+              "basis": "66px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.input.dropdown",
+            "version": 0,
+            "meta": {
+              "name": "Truck"
+            },
+            "props": {
+              "options": [],
+              "search": {
+                "enabled": false
+              },
+              "showClearIcon": false,
+              "style": {
+                "fontSize": "18px"
+              }
+            },
+            "position": {
+              "basis": "0",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.trucks"
+                  },
+                  "transforms": [
+                    {
+                      "type": "script",
+                      "code": "\treturn [{'value': '', 'label': 'Auto (\u0e04\u0e31\u0e19\u0e16\u0e31\u0e14\u0e44\u0e1b)'}] + [{'value': t['truckNo'], 'label': t['truckNo']} for t in (value or [])]"
+                    }
+                  ]
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.truckNo",
+                    "bidirectional": true
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "BtnArrive"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "IconBox"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "backgroundColor": "#F4F6F8",
+                "border": "2px solid #14304A",
+                "borderRadius": "16px",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "margin": "0 0 6px 0"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "children": [
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Clock"
+                },
+                "props": {
+                  "path": "material/schedule",
+                  "color": "#2B2B2B",
+                  "style": {
+                    "marginTop": "-60px"
+                  }
+                },
+                "position": {
+                  "basis": "56px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Truck"
+                },
+                "props": {
+                  "path": "material/local_shipping",
+                  "color": "#5AA9E6"
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "Truck Arrive",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "26px",
+                "fontWeight": "bold",
+                "textAlign": "center",
+                "backgroundColor": "#3E8E2E",
+                "borderRadius": "10px"
+              }
+            },
+            "position": {
+              "basis": "58px",
+              "grow": 0,
+              "shrink": 0
+            }
+          }
+        ],
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.data.canArrive}, 1, 0.45)"
+              }
+            }
+          }
+        },
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tres = receiving.data.stampTruck(self.view.custom.supplier, self.view.custom.truckNo, 'arrive')\n\tself.view.custom.message = res['message']\n\tself.view.custom.messageOk = res['ok']\n\tself.view.custom.truckNo = ''\n\tself.view.custom.rev = self.view.custom.rev + 1"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "position": {
+          "x": 0.02,
+          "y": 0.22083,
+          "width": 0.47,
+          "height": 0.49167
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "BtnDeparture"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "IconBox"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "backgroundColor": "#F4F6F8",
+                "border": "2px solid #14304A",
+                "borderRadius": "16px",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "margin": "0 0 6px 0"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "children": [
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Truck"
+                },
+                "props": {
+                  "path": "material/local_shipping",
+                  "color": "#F2B33D",
+                  "style": {
+                    "transform": "scaleX(-1)"
+                  }
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Go"
+                },
+                "props": {
+                  "path": "material/double_arrow",
+                  "color": "#B04A2E"
+                },
+                "position": {
+                  "basis": "56px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "Truck Departure",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "26px",
+                "fontWeight": "bold",
+                "textAlign": "center",
+                "backgroundColor": "#14304A",
+                "borderRadius": "10px"
+              }
+            },
+            "position": {
+              "basis": "58px",
+              "grow": 0,
+              "shrink": 0
+            }
+          }
+        ],
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.data.canDepart}, 1, 0.45)"
+              }
+            }
+          }
+        },
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tres = receiving.data.stampTruck(self.view.custom.supplier, self.view.custom.truckNo, 'depart')\n\tself.view.custom.message = res['message']\n\tself.view.custom.messageOk = res['ok']\n\tself.view.custom.truckNo = ''\n\tself.view.custom.rev = self.view.custom.rev + 1"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "position": {
+          "x": 0.51,
+          "y": 0.22083,
+          "width": 0.47,
+          "height": 0.49167
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Message"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "16px",
+            "fontWeight": "bold",
+            "borderRadius": "6px",
+            "paddingLeft": "12px"
+          }
+        },
+        "position": {
+          "x": 0.02,
+          "y": 0.725,
+          "width": 0.96,
+          "height": 0.07083
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if(len({view.custom.message}) > 0, {view.custom.message}, '\u0e40\u0e25\u0e37\u0e2d\u0e01 Supplier \u0e41\u0e25\u0e49\u0e27\u0e01\u0e14\u0e1b\u0e38\u0e48\u0e21 Truck Arrive / Truck Departure')"
+              }
+            }
+          },
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if(len({view.custom.message}) = 0, '#EEF2F6', if({view.custom.messageOk}, '#E6F6EA', '#FCE8E6'))"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if(len({view.custom.message}) = 0, '#6B7A89', if({view.custom.messageOk}, '#23864A', '#C62828'))"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.flex-repeater",
+        "version": 0,
+        "meta": {
+          "name": "Trucks"
+        },
+        "props": {
+          "path": "Receiving/Components/HmiTruckCard",
+          "direction": "row",
+          "instances": [],
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false,
+          "elementPosition": {
+            "basis": "150px",
+            "grow": 0,
+            "shrink": 0
+          },
+          "style": {
+            "overflowX": "auto"
+          }
+        },
+        "position": {
+          "x": 0.015,
+          "y": 0.80833,
+          "width": 0.97,
+          "height": 0.175
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.trucks"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.supplier": {
+      "persistent": true
+    },
+    "custom.truckNo": {
+      "persistent": true
+    },
+    "custom.message": {
+      "persistent": true
+    },
+    "custom.messageOk": {
+      "persistent": true
+    },
+    "custom.rev": {
+      "persistent": true
+    },
+    "custom.data": {
+      "persistent": true,
+      "binding": {
+        "type": "expr-struct",
+        "config": {
+          "struct": {
+            "supplier": "{view.custom.supplier}",
+            "rev": "{view.custom.rev}",
+            "tick": "now(5000)"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "type": "script",
+            "code": "\treturn receiving.data.getHmi(value['supplier'])"
+          }
+        ]
+      }
+    }
+  }
+}

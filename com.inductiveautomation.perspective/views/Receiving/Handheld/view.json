@@ -1,0 +1,1023 @@
+{
+  "custom": {
+    "orderNo": "",
+    "scanText": "",
+    "scanMsg": "",
+    "scanOk": true,
+    "ccrMsg": "",
+    "ccrOk": true,
+    "rev": 0,
+    "data": {}
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 400,
+      "height": 860
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#EEF2F6",
+        "fontFamily": "Segoe UI, Tahoma, Arial, sans-serif",
+        "overflowY": "auto"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "backgroundColor": "#14304A",
+            "alignItems": "center",
+            "padding": "0 12px"
+          }
+        },
+        "position": {
+          "basis": "52px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.icon",
+            "version": 0,
+            "meta": {
+              "name": "Icon"
+            },
+            "props": {
+              "path": "material/qr_code_scanner",
+              "color": "#FFFFFF"
+            },
+            "position": {
+              "basis": "28px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Receiving Handheld",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "18px",
+                "fontWeight": "bold",
+                "paddingLeft": "8px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Updated"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#C9D8E6",
+                "fontSize": "12px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.updated"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Ccr"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "10px",
+            "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+            "overflow": "visible",
+            "padding": "10px 12px",
+            "margin": "8px 10px 0 10px"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Row"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "8px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Info"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {}
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14\u0e08\u0e32\u0e01 CCR",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "15px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "No"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#6B7A89",
+                        "fontSize": "13px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "expr",
+                          "config": {
+                            "expression": "concat({view.custom.data.ccr.orderNo}, '  (', len({view.custom.data.ccr.sequence}), ' \u0e04\u0e31\u0e19)')"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.input.button",
+                "version": 0,
+                "meta": {
+                  "name": "Pull"
+                },
+                "props": {
+                  "text": "\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e08\u0e32\u0e01 CCR",
+                  "image": {
+                    "icon": {
+                      "path": "material/cloud_download",
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  "style": {
+                    "fontSize": "15px",
+                    "borderRadius": "8px",
+                    "border": "none",
+                    "color": "#FFFFFF",
+                    "backgroundColor": "#2E86DE"
+                  }
+                },
+                "position": {
+                  "basis": "170px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tres = receiving.data.pullCcrOrders()\n\tself.view.custom.ccrMsg = res['message']\n\tself.view.custom.ccrOk = res['ok']\n\tself.view.custom.rev = self.view.custom.rev + 1"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Seq"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontFamily": "Consolas, monospace",
+                "fontSize": "15px",
+                "letterSpacing": "2px",
+                "color": "#FFFFFF",
+                "backgroundColor": "#1D4466",
+                "borderRadius": "6px",
+                "padding": "4px 8px",
+                "marginTop": "6px",
+                "wordBreak": "break-all"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat('Sequence : ', {view.custom.data.ccr.sequence})"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Msg"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "borderRadius": "6px",
+                "padding": "6px 8px",
+                "marginTop": "6px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.ccrMsg"
+                  }
+                }
+              },
+              "meta.visible": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "len({view.custom.ccrMsg}) > 0"
+                  }
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.ccrOk}, '#E6F6EA', '#FCE8E6')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.ccrOk}, '#23864A', '#C62828')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Orders"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "10px",
+            "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+            "overflow": "visible",
+            "padding": "10px 12px",
+            "margin": "8px 10px 0 10px"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "T"
+            },
+            "props": {
+              "text": "\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49 (\u0e41\u0e22\u0e01\u0e15\u0e32\u0e21 Supplier)",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "15px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "24px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Split"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "13px",
+                "backgroundColor": "#F3F6F9",
+                "borderRadius": "6px",
+                "padding": "4px 8px",
+                "margin": "4px 0"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.bySupplier"
+                  },
+                  "transforms": [
+                    {
+                      "type": "script",
+                      "code": "\treturn '  |  '.join(['%s : %d \u0e0a\u0e34\u0e49\u0e19' % (r['supplier'], r['qty']) for r in (value or [])])"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Hint"
+            },
+            "props": {
+              "text": "\u0e41\u0e15\u0e30\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e14\u0e39\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32",
+              "style": {
+                "color": "#6B7A89",
+                "fontSize": "12px"
+              }
+            },
+            "position": {
+              "basis": "18px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "List"
+            },
+            "props": {
+              "path": "Receiving/Components/OrderCard",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "maxHeight": "290px",
+                "overflowY": "auto"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.orders"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Receive"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "10px",
+            "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+            "overflow": "visible",
+            "padding": "10px 12px",
+            "margin": "8px 10px 0 10px",
+            "marginBottom": "12px"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Head"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Info"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {}
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Order"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "15px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "expr",
+                          "config": {
+                            "expression": "if(len({view.custom.data.selected.orderNo}) > 0, {view.custom.data.selected.orderNo}, '\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c')"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sup"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#6B7A89",
+                        "fontSize": "13px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.selected.supplier"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Status"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": "12px",
+                    "fontWeight": "bold",
+                    "borderRadius": "10px",
+                    "padding": "2px 10px",
+                    "whiteSpace": "nowrap"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "concat({view.custom.data.selected.statusText}, if(len({view.custom.data.selected.confirmedAt}) > 0, concat(' ', {view.custom.data.selected.confirmedAt}), ''))"
+                      }
+                    }
+                  },
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "type": "property",
+                      "config": {
+                        "path": "view.custom.data.selected.statusColor"
+                      }
+                    }
+                  },
+                  "meta.visible": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "len({view.custom.data.selected.orderNo}) > 0"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "ScanRow"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "gap": "6px",
+                "marginTop": "8px"
+              }
+            },
+            "position": {
+              "basis": "42px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.input.text-field",
+                "version": 0,
+                "meta": {
+                  "name": "ScanInput"
+                },
+                "props": {
+                  "placeholder": "\u0e2a\u0e41\u0e01\u0e19 / \u0e1e\u0e34\u0e21\u0e1e\u0e4c Part No. (\u0e40\u0e0a\u0e48\u0e19 T0001 \u0e2b\u0e23\u0e37\u0e2d T0001*5)",
+                  "deferUpdates": true,
+                  "style": {
+                    "fontSize": "16px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "property",
+                      "config": {
+                        "path": "view.custom.scanText",
+                        "bidirectional": true
+                      }
+                    }
+                  },
+                  "props.enabled": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "{view.custom.data.selected.status} != 'RECEIVED' && len({view.custom.data.selected.orderNo}) > 0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ia.input.button",
+                "version": 0,
+                "meta": {
+                  "name": "ScanBtn"
+                },
+                "props": {
+                  "text": "\u0e2a\u0e41\u0e01\u0e19",
+                  "image": {
+                    "icon": {
+                      "path": "material/qr_code_scanner",
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  "style": {
+                    "fontSize": "15px",
+                    "borderRadius": "8px",
+                    "border": "none",
+                    "color": "#FFFFFF",
+                    "backgroundColor": "#14304A"
+                  }
+                },
+                "position": {
+                  "basis": "92px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tv = self.getSibling('ScanInput').props.text\n\tif v:\n\t\tself.view.custom.scanText = v"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "ScanMsg"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "borderRadius": "6px",
+                "padding": "6px 8px",
+                "marginTop": "6px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.scanMsg"
+                  }
+                }
+              },
+              "meta.visible": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "len({view.custom.scanMsg}) > 0"
+                  }
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.scanOk}, '#E6F6EA', '#FCE8E6')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.scanOk}, '#23864A', '#C62828')"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Items"
+            },
+            "props": {
+              "path": "Receiving/Components/ItemRow",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "marginTop": "6px",
+                "border": "1px solid #D9E1E8",
+                "borderRadius": "6px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.items"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Total"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "textAlign": "right",
+                "marginTop": "6px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat('\u0e2a\u0e41\u0e01\u0e19\u0e41\u0e25\u0e49\u0e27 ', {view.custom.data.selected.scanned}, ' / ', {view.custom.data.selected.qty}, ' \u0e0a\u0e34\u0e49\u0e19')"
+                  }
+                }
+              },
+              "meta.visible": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "len({view.custom.data.selected.orderNo}) > 0"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.input.button",
+            "version": 0,
+            "meta": {
+              "name": "Confirm"
+            },
+            "props": {
+              "text": "\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e23\u0e31\u0e1a\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32",
+              "image": {
+                "icon": {
+                  "path": "material/task_alt",
+                  "color": "#FFFFFF"
+                }
+              },
+              "style": {
+                "fontSize": "18px",
+                "borderRadius": "8px",
+                "border": "none",
+                "color": "#FFFFFF",
+                "backgroundColor": "#2DB84B",
+                "marginTop": "8px"
+              }
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "len({view.custom.data.selected.orderNo}) > 0 && {view.custom.data.selected.status} != 'RECEIVED'"
+                  }
+                }
+              }
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tres = receiving.data.confirmReceive(self.view.custom.orderNo)\n\tself.view.custom.scanMsg = res['message']\n\tself.view.custom.scanOk = res['ok']\n\tself.view.custom.rev = self.view.custom.rev + 1"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "rcvSelectOrder",
+          "pageScope": true,
+          "sessionScope": false,
+          "viewScope": false,
+          "script": "\tself.view.custom.orderNo = payload['orderNo']\n\tself.view.custom.scanMsg = ''"
+        }
+      ]
+    }
+  },
+  "propConfig": {
+    "custom.orderNo": {
+      "persistent": true
+    },
+    "custom.scanText": {
+      "persistent": true,
+      "onChange": {
+        "enabled": null,
+        "script": "\tv = currentValue.value if currentValue else None\n\tif v:\n\t\tres = receiving.data.scanPart(self.custom.orderNo, v)\n\t\tself.custom.scanMsg = res['message']\n\t\tself.custom.scanOk = res['ok']\n\t\tself.custom.scanText = ''\n\t\tself.custom.rev = self.custom.rev + 1"
+      }
+    },
+    "custom.scanMsg": {
+      "persistent": true
+    },
+    "custom.scanOk": {
+      "persistent": true
+    },
+    "custom.ccrMsg": {
+      "persistent": true
+    },
+    "custom.ccrOk": {
+      "persistent": true
+    },
+    "custom.rev": {
+      "persistent": true
+    },
+    "custom.data": {
+      "persistent": true,
+      "binding": {
+        "type": "expr-struct",
+        "config": {
+          "struct": {
+            "orderNo": "{view.custom.orderNo}",
+            "rev": "{view.custom.rev}",
+            "tick": "now(5000)"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "type": "script",
+            "code": "\treturn receiving.data.getHandheld(value['orderNo'])"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "custom": {},
+  "params": {
+    "name": "Model A",
+    "value": 9,
+    "max": 11,
+    "text": "9 \u0e04\u0e31\u0e19"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 330,
+      "height": 34
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "style": {
+        "alignItems": "center",
+        "gap": "8px"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Name"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#1F2D3D",
+            "fontSize": "16px",
+            "whiteSpace": "nowrap"
+          }
+        },
+        "position": {
+          "basis": "80px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.name"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.progress",
+        "version": 0,
+        "meta": {
+          "name": "Bar"
+        },
+        "props": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "bar": {
+            "color": "#1F6FA8"
+          },
+          "track": {
+            "color": "#E6EDF3"
+          },
+          "valueDisplay": {
+            "enabled": false
+          },
+          "style": {
+            "height": "18px",
+            "borderRadius": "9px"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.value"
+              }
+            }
+          },
+          "props.max": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.max"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Text"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#1F2D3D",
+            "fontSize": "16px",
+            "textAlign": "right",
+            "fontWeight": "bold"
+          }
+        },
+        "position": {
+          "basis": "70px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.text"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "propConfig": {
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.max": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.text": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

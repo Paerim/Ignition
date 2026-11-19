@@ -1,0 +1,589 @@
+{
+  "custom": {},
+  "params": {
+    "supplier": "ABC",
+    "pattern": "1:2:2",
+    "firstInGroup": true,
+    "truckNo": "Truck01",
+    "arrivePlan": "08:15",
+    "arriveActual": "08:17",
+    "departPlan": "08:20",
+    "departActual": "",
+    "arriveStatus": "On time",
+    "departStatus": "",
+    "status": "On time"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1060,
+      "height": 58
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "row",
+      "style": {
+        "alignItems": "stretch",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "SupplierCell"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "justifyContent": "center",
+            "paddingLeft": "14px"
+          }
+        },
+        "position": {
+          "basis": "140px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Supplier"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "21px",
+                "fontWeight": "bold",
+                "color": "#1F2D3D"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.supplier"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Pattern"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "15px",
+                "color": "#6B7A89"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.pattern"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Truck"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "19px",
+            "color": "#1F2D3D",
+            "textAlign": "center"
+          }
+        },
+        "position": {
+          "basis": "120px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.truckNo"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "ArrivePlan"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "20px",
+            "color": "#1F2D3D",
+            "textAlign": "center",
+            "borderLeft": "1px solid #D9E1E8"
+          }
+        },
+        "position": {
+          "basis": "110px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.arrivePlan"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "ArriveActualCell"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "justifyContent": "center",
+            "alignItems": "center"
+          }
+        },
+        "position": {
+          "basis": "120px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "ArriveActual"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "20px",
+                "fontWeight": "bold",
+                "textAlign": "center",
+                "borderRadius": "5px",
+                "border": "1px solid transparent"
+              }
+            },
+            "position": {
+              "basis": "90px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.arriveActual}) > 0, {view.params.arriveActual}, '--')"
+                  }
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.arriveActual}) > 0, '#FFE45C', 'transparent')"
+                  }
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.arriveActual}) > 0, '#C9A800', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.arriveActual}) > 0, '#1F2D3D', '#A0AAB4')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "DepartPlan"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "20px",
+            "color": "#1F2D3D",
+            "textAlign": "center",
+            "borderLeft": "1px solid #D9E1E8"
+          }
+        },
+        "position": {
+          "basis": "110px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.departPlan"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "DepartActualCell"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "justifyContent": "center",
+            "alignItems": "center"
+          }
+        },
+        "position": {
+          "basis": "120px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "DepartActual"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "20px",
+                "fontWeight": "bold",
+                "textAlign": "center",
+                "borderRadius": "5px",
+                "border": "1px solid transparent"
+              }
+            },
+            "position": {
+              "basis": "90px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.departActual}) > 0, {view.params.departActual}, '--')"
+                  }
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.departActual}) > 0, '#FFE45C', 'transparent')"
+                  }
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.departActual}) > 0, '#C9A800', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if(len({view.params.departActual}) > 0, '#1F2D3D', '#A0AAB4')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Status"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "justifyContent": "center",
+            "alignItems": "center",
+            "borderLeft": "1px solid #D9E1E8"
+          }
+        },
+        "position": {
+          "basis": "0",
+          "grow": 1,
+          "shrink": 1
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "POntime"
+            },
+            "props": {
+              "text": "On time",
+              "style": {
+                "fontSize": "16px",
+                "textAlign": "center",
+                "borderRadius": "6px",
+                "fontWeight": "bold",
+                "border": "1px solid #C9D1D9",
+                "margin": "0 3px"
+              }
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'On time', '#2DB84B', '#E4E8EC')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'On time', '#FFFFFF', '#5B6670')"
+                  }
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'On time', '#2DB84B', '#C9D1D9')"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PDelay"
+            },
+            "props": {
+              "text": "Delay",
+              "style": {
+                "fontSize": "16px",
+                "textAlign": "center",
+                "borderRadius": "6px",
+                "fontWeight": "bold",
+                "border": "1px solid #C9D1D9",
+                "margin": "0 3px"
+              }
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Delay', '#E53935', '#E4E8EC')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Delay', '#FFFFFF', '#5B6670')"
+                  }
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Delay', '#E53935', '#C9D1D9')"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PAdvance"
+            },
+            "props": {
+              "text": "Advance",
+              "style": {
+                "fontSize": "16px",
+                "textAlign": "center",
+                "borderRadius": "6px",
+                "fontWeight": "bold",
+                "border": "1px solid #C9D1D9",
+                "margin": "0 3px"
+              }
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Advance', '#2E86DE', '#E4E8EC')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Advance', '#FFFFFF', '#5B6670')"
+                  }
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.params.status} = 'Advance', '#2E86DE', '#C9D1D9')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "propConfig": {
+      "props.style.borderTop": {
+        "binding": {
+          "type": "expr",
+          "config": {
+            "expression": "if({view.params.firstInGroup}, '2px solid #9FB0C0', '1px solid #D9E1E8')"
+          }
+        }
+      }
+    }
+  },
+  "propConfig": {
+    "params.supplier": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pattern": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.firstInGroup": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.truckNo": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.arrivePlan": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.arriveActual": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.departPlan": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.departActual": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.arriveStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.departStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.status": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

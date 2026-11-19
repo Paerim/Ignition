@@ -587,12 +587,20 @@ def build_dashboard():
     return view(root, {"width": DESIGN_W, "height": DESIGN_H}, custom=custom, propConfig=pc, events=events)
 
 
+PAGES = {
+    "/": {"title": "HUB 4x4 Quality", "viewPath": "HUB4x4/QualityDashboard"},
+    "/receiving": {"title": "Receiving", "viewPath": "Receiving/Overview"},
+    "/receiving/tv": {"title": "Receiving - Smart TV", "viewPath": "Receiving/SmartTV"},
+    "/receiving/hmi": {"title": "Receiving - HMI", "viewPath": "Receiving/HMI"},
+    "/receiving/handheld": {"title": "Receiving - Handheld", "viewPath": "Receiving/Handheld"},
+}
+
+
 def write_page_config():
     d = os.path.join(PERSP, "page-config")
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, "config.json"), "w") as f:
-        json.dump({"pages": {"/": {"title": "HUB 4x4 Quality", "viewPath": "HUB4x4/QualityDashboard"}},
-                   "sharedDocks": {}}, f, indent=2)
+        json.dump({"pages": PAGES, "sharedDocks": {}}, f, indent=2)
     write_resource(d, "config.json")
 
 

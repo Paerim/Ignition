@@ -3,6 +3,22 @@
     "/": {
       "title": "HUB 4x4 Quality",
       "viewPath": "HUB4x4/QualityDashboard"
+    },
+    "/receiving": {
+      "title": "Receiving",
+      "viewPath": "Receiving/Overview"
+    },
+    "/receiving/tv": {
+      "title": "Receiving - Smart TV",
+      "viewPath": "Receiving/SmartTV"
+    },
+    "/receiving/hmi": {
+      "title": "Receiving - HMI",
+      "viewPath": "Receiving/HMI"
+    },
+    "/receiving/handheld": {
+      "title": "Receiving - Handheld",
+      "viewPath": "Receiving/Handheld"
     }
   },
   "sharedDocks": {}

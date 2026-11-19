@@ -1,0 +1,1950 @@
+{
+  "custom": {
+    "data": {}
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "root": {
+    "type": "ia.container.coord",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "backgroundColor": "#EEF2F6",
+        "fontFamily": "Segoe UI, Tahoma, Arial, sans-serif"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "backgroundColor": "#14304A",
+            "alignItems": "center",
+            "paddingLeft": "24px"
+          }
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 0.06667
+        },
+        "children": [
+          {
+            "type": "ia.display.icon",
+            "version": 0,
+            "meta": {
+              "name": "Icon"
+            },
+            "props": {
+              "path": "material/local_shipping",
+              "color": "#FFFFFF"
+            },
+            "position": {
+              "basis": "44px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Receiving Dashboard",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "32px",
+                "fontWeight": "bold",
+                "paddingLeft": "12px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Date"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#C9D8E6",
+                "fontSize": "22px",
+                "textAlign": "right"
+              }
+            },
+            "position": {
+              "basis": "220px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat('Date : ', dateFormat(now(1000), 'dd/MM/yyyy'))"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Time"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "26px",
+                "fontWeight": "bold",
+                "textAlign": "right",
+                "paddingRight": "24px"
+              }
+            },
+            "position": {
+              "basis": "210px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat('Time : ', dateFormat(now(1000), 'HH:mm:ss'))"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "TruckMonitoring"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "10px",
+            "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.01042,
+          "y": 0.08148,
+          "width": 0.58333,
+          "height": 0.9
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "TitleRow"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "padding": "0 16px"
+              }
+            },
+            "position": {
+              "basis": "70px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Badge"
+                },
+                "props": {
+                  "text": "1",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "backgroundColor": "#14304A",
+                    "borderRadius": "50%",
+                    "textAlign": "center",
+                    "fontSize": "18px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "position": {
+                  "basis": "32px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "text": "Truck Receiving Monitoring",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "28px",
+                    "fontWeight": "bold",
+                    "paddingLeft": "12px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "SumOnTime"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": "17px",
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                    "backgroundColor": "#2DB84B",
+                    "borderRadius": "16px",
+                    "margin": "0 4px"
+                  }
+                },
+                "position": {
+                  "basis": "130px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "concat('On time  ', {view.custom.data.summary.onTime})"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "SumDelay"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": "17px",
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                    "backgroundColor": "#E53935",
+                    "borderRadius": "16px",
+                    "margin": "0 4px"
+                  }
+                },
+                "position": {
+                  "basis": "130px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "concat('Delay  ', {view.custom.data.summary.delay})"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "SumAdvance"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": "17px",
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                    "backgroundColor": "#2E86DE",
+                    "borderRadius": "16px",
+                    "margin": "0 4px"
+                  }
+                },
+                "position": {
+                  "basis": "130px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "concat('Advance  ', {view.custom.data.summary.advance})"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "TableHead"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "backgroundColor": "#1D4466",
+                "margin": "0 16px",
+                "borderRadius": "8px 8px 0 0"
+              }
+            },
+            "position": {
+              "basis": "68px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "SupplierH"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "justifyContent": "center"
+                  }
+                },
+                "position": {
+                  "basis": "140px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Supplier name",
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontSize": "18px",
+                        "fontWeight": "bold",
+                        "textAlign": "left",
+                        "paddingLeft": "14px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "TruckH"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "justifyContent": "center",
+                    "borderLeft": "1px solid #4C6E8E"
+                  }
+                },
+                "position": {
+                  "basis": "120px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Truck No.",
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontSize": "18px",
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "ArriveH"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderLeft": "1px solid #4C6E8E"
+                  }
+                },
+                "position": {
+                  "basis": "230px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Truck Arrive",
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontSize": "18px",
+                        "fontWeight": "bold",
+                        "textAlign": "center",
+                        "borderBottom": "1px solid #4C6E8E"
+                      }
+                    },
+                    "position": {
+                      "basis": "34px",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sub"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {}
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "children": [
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "Plan"
+                        },
+                        "props": {
+                          "text": "Plan",
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontSize": "16px",
+                            "fontWeight": "bold",
+                            "textAlign": "center"
+                          }
+                        },
+                        "position": {
+                          "basis": "110px",
+                          "grow": 0,
+                          "shrink": 0
+                        }
+                      },
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "Actual"
+                        },
+                        "props": {
+                          "text": "Actual",
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontSize": "16px",
+                            "fontWeight": "bold",
+                            "textAlign": "center"
+                          }
+                        },
+                        "position": {
+                          "basis": "120px",
+                          "grow": 0,
+                          "shrink": 0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "DepartH"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderLeft": "1px solid #4C6E8E"
+                  }
+                },
+                "position": {
+                  "basis": "230px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Truck Departure",
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontSize": "18px",
+                        "fontWeight": "bold",
+                        "textAlign": "center",
+                        "borderBottom": "1px solid #4C6E8E"
+                      }
+                    },
+                    "position": {
+                      "basis": "34px",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sub"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {}
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "children": [
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "Plan"
+                        },
+                        "props": {
+                          "text": "Plan",
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontSize": "16px",
+                            "fontWeight": "bold",
+                            "textAlign": "center"
+                          }
+                        },
+                        "position": {
+                          "basis": "110px",
+                          "grow": 0,
+                          "shrink": 0
+                        }
+                      },
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "Actual"
+                        },
+                        "props": {
+                          "text": "Actual",
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontSize": "16px",
+                            "fontWeight": "bold",
+                            "textAlign": "center"
+                          }
+                        },
+                        "position": {
+                          "basis": "120px",
+                          "grow": 0,
+                          "shrink": 0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "StatusH"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "justifyContent": "center",
+                    "borderLeft": "1px solid #4C6E8E"
+                  }
+                },
+                "position": {
+                  "basis": "0",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Status",
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontSize": "18px",
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Rows"
+            },
+            "props": {
+              "path": "Receiving/Components/TruckRow",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "overflowY": "auto",
+                "margin": "0 16px 12px 16px",
+                "border": "1px solid #D9E1E8",
+                "borderTop": "none"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.trucks"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Legend"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "L"
+                },
+                "props": {
+                  "text": "Actual (\u0e2a\u0e35\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e07) = \u0e40\u0e27\u0e25\u0e32\u0e08\u0e23\u0e34\u0e07\u0e08\u0e32\u0e01\u0e1b\u0e38\u0e48\u0e21 HMI / PLC     Tolerance \u00b15 \u0e19\u0e32\u0e17\u0e35 : On time  |  \u0e0a\u0e49\u0e32\u0e01\u0e27\u0e48\u0e32\u0e41\u0e1c\u0e19 = Delay  |  \u0e40\u0e23\u0e47\u0e27\u0e01\u0e27\u0e48\u0e32\u0e41\u0e1c\u0e19 = Advance",
+                  "style": {
+                    "color": "#6B7A89",
+                    "fontSize": "15px",
+                    "paddingLeft": "18px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "MiniWms"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "10px",
+            "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+            "overflow": "hidden",
+            "padding": "8px 16px 16px 16px"
+          }
+        },
+        "position": {
+          "x": 0.60417,
+          "y": 0.08148,
+          "width": 0.38542,
+          "height": 0.9
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "TitleRow"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "56px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Badge"
+                },
+                "props": {
+                  "text": "2",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "backgroundColor": "#14304A",
+                    "borderRadius": "50%",
+                    "textAlign": "center",
+                    "fontSize": "18px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "position": {
+                  "basis": "32px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "text": "Mini WMS",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "28px",
+                    "fontWeight": "bold",
+                    "paddingLeft": "12px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Sub"
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "color": "#6B7A89",
+                    "fontSize": "16px",
+                    "textAlign": "right"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "type": "expr",
+                      "config": {
+                        "expression": "concat('\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49  |  CCR : ', {view.custom.data.wms.ccrOrderNo})"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Kpi"
+            },
+            "props": {
+              "path": "Receiving/Components/MiniKpi",
+              "direction": "row",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false,
+              "elementPosition": {
+                "basis": "0px",
+                "grow": 1,
+                "shrink": 1
+              },
+              "style": {
+                "gap": "8px"
+              }
+            },
+            "position": {
+              "basis": "108px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.wms.kpi"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Mid"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "gap": "12px",
+                "marginTop": "12px"
+              }
+            },
+            "position": {
+              "basis": "170px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "OrderStatus"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "border": "1px solid #D9E1E8",
+                    "borderRadius": "8px",
+                    "padding": "10px 12px"
+                  }
+                },
+                "position": {
+                  "basis": "0",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "\u0e2a\u0e16\u0e32\u0e19\u0e30\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "18px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Bar"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "backgroundColor": "#E6EDF3",
+                        "borderRadius": "9px",
+                        "overflow": "hidden"
+                      }
+                    },
+                    "position": {
+                      "basis": "18px",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": [
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "Open"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#F2994A"
+                          }
+                        },
+                        "position": {
+                          "basis": "0px",
+                          "grow": 0,
+                          "shrink": 1
+                        },
+                        "propConfig": {
+                          "position.grow": {
+                            "binding": {
+                              "type": "property",
+                              "config": {
+                                "path": "view.custom.data.wms.orderStatus.open"
+                              }
+                            }
+                          }
+                        },
+                        "children": []
+                      },
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "Receiving"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#2E86DE"
+                          }
+                        },
+                        "position": {
+                          "basis": "0px",
+                          "grow": 0,
+                          "shrink": 1
+                        },
+                        "propConfig": {
+                          "position.grow": {
+                            "binding": {
+                              "type": "property",
+                              "config": {
+                                "path": "view.custom.data.wms.orderStatus.receiving"
+                              }
+                            }
+                          }
+                        },
+                        "children": []
+                      },
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "Received"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#2DB84B"
+                          }
+                        },
+                        "position": {
+                          "basis": "0px",
+                          "grow": 0,
+                          "shrink": 1
+                        },
+                        "propConfig": {
+                          "position.grow": {
+                            "binding": {
+                              "type": "property",
+                              "config": {
+                                "path": "view.custom.data.wms.orderStatus.received"
+                              }
+                            }
+                          }
+                        },
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Legend"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "alignItems": "center",
+                        "flexWrap": "wrap",
+                        "marginTop": "10px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": [
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "DotLOpen"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#F2994A",
+                            "borderRadius": "50%",
+                            "margin": "0 6px 0 0"
+                          }
+                        },
+                        "position": {
+                          "basis": "12px",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "children": []
+                      },
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "LOpen"
+                        },
+                        "props": {
+                          "text": "",
+                          "style": {
+                            "fontSize": "15px",
+                            "color": "#1F2D3D",
+                            "paddingRight": "14px"
+                          }
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "type": "expr",
+                              "config": {
+                                "expression": "concat('\u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32 (', {view.custom.data.wms.orderStatus.open}, ')')"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "DotLReceiving"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#2E86DE",
+                            "borderRadius": "50%",
+                            "margin": "0 6px 0 0"
+                          }
+                        },
+                        "position": {
+                          "basis": "12px",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "children": []
+                      },
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "LReceiving"
+                        },
+                        "props": {
+                          "text": "",
+                          "style": {
+                            "fontSize": "15px",
+                            "color": "#1F2D3D",
+                            "paddingRight": "14px"
+                          }
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "type": "expr",
+                              "config": {
+                                "expression": "concat('\u0e01\u0e33\u0e25\u0e31\u0e07\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32 (', {view.custom.data.wms.orderStatus.receiving}, ')')"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "ia.container.flex",
+                        "version": 0,
+                        "meta": {
+                          "name": "DotLReceived"
+                        },
+                        "props": {
+                          "direction": "row",
+                          "style": {
+                            "backgroundColor": "#2DB84B",
+                            "borderRadius": "50%",
+                            "margin": "0 6px 0 0"
+                          }
+                        },
+                        "position": {
+                          "basis": "12px",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "children": []
+                      },
+                      {
+                        "type": "ia.display.label",
+                        "version": 0,
+                        "meta": {
+                          "name": "LReceived"
+                        },
+                        "props": {
+                          "text": "",
+                          "style": {
+                            "fontSize": "15px",
+                            "color": "#1F2D3D",
+                            "paddingRight": "14px"
+                          }
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "grow": 0,
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "type": "expr",
+                              "config": {
+                                "expression": "concat('\u0e23\u0e31\u0e1a\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08 (', {view.custom.data.wms.orderStatus.received}, ')')"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Total"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#6B7A89",
+                        "fontSize": "14px",
+                        "marginTop": "6px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "expr",
+                          "config": {
+                            "expression": "concat('\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c Supplier \u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 ', {view.custom.data.wms.orderStatus.total}, ' \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23')"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Models"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "border": "1px solid #D9E1E8",
+                    "borderRadius": "8px",
+                    "padding": "10px 12px"
+                  }
+                },
+                "position": {
+                  "basis": "0",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "\u0e1c\u0e25\u0e34\u0e15\u0e15\u0e32\u0e21\u0e42\u0e21\u0e40\u0e14\u0e25",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "18px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.display.flex-repeater",
+                    "version": 0,
+                    "meta": {
+                      "name": "Bars"
+                    },
+                    "props": {
+                      "path": "Receiving/Components/ModelBar",
+                      "direction": "column",
+                      "instances": [],
+                      "useDefaultViewWidth": false,
+                      "useDefaultViewHeight": true,
+                      "elementPosition": {
+                        "basis": "auto",
+                        "grow": 0,
+                        "shrink": 0
+                      },
+                      "style": {
+                        "justifyContent": "space-around"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "props.instances": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.wms.models"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Sequence"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "border": "1px solid #D9E1E8",
+                "borderRadius": "8px",
+                "padding": "10px 12px",
+                "marginTop": "12px"
+              }
+            },
+            "position": {
+              "basis": "110px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Head"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Production Sequence \u0e08\u0e32\u0e01 CCR",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "18px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Legend"
+                    },
+                    "props": {
+                      "text": "A = Model A   B = Model B   C = Model C",
+                      "style": {
+                        "color": "#6B7A89",
+                        "fontSize": "14px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Result"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center"
+                  }
+                },
+                "position": {
+                  "basis": "46px",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "R"
+                    },
+                    "props": {
+                      "text": "Result",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "position": {
+                      "basis": "62px",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  },
+                  {
+                    "type": "ia.display.flex-repeater",
+                    "version": 0,
+                    "meta": {
+                      "name": "Chips"
+                    },
+                    "props": {
+                      "path": "Receiving/Components/SeqChip",
+                      "direction": "row",
+                      "instances": [],
+                      "useDefaultViewWidth": false,
+                      "useDefaultViewHeight": false,
+                      "elementPosition": {
+                        "basis": "0px",
+                        "grow": 1,
+                        "shrink": 1
+                      },
+                      "style": {
+                        "backgroundColor": "#14304A",
+                        "borderRadius": "6px",
+                        "padding": "4px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "props.instances": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.wms.sequence"
+                          },
+                          "transforms": [
+                            {
+                              "type": "script",
+                              "code": "\treturn [{'letter': c} for c in (value or '')]"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Parts"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "border": "1px solid #D9E1E8",
+                "borderRadius": "8px",
+                "padding": "10px 12px",
+                "marginTop": "12px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "children": [
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "T"
+                },
+                "props": {
+                  "text": "\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23 Part \u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32 (\u0e41\u0e08\u0e01\u0e41\u0e08\u0e07\u0e15\u0e32\u0e21 Order)",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "18px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "position": {
+                  "basis": "34px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.table",
+                "version": 0,
+                "meta": {
+                  "name": "Table"
+                },
+                "props": {
+                  "data": [],
+                  "columns": [
+                    {
+                      "field": "partNo",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "left",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 90,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "Item Code",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    },
+                    {
+                      "field": "name",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "left",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 150,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "\u0e0a\u0e37\u0e48\u0e2d\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    },
+                    {
+                      "field": "supplier",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "center",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 80,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "Supplier",
+                        "justify": "center",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    },
+                    {
+                      "field": "qty",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "right",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 80,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "\u0e08\u0e33\u0e19\u0e27\u0e19\u0e2a\u0e31\u0e48\u0e07",
+                        "justify": "right",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    },
+                    {
+                      "field": "received",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "right",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 70,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "\u0e23\u0e31\u0e1a\u0e41\u0e25\u0e49\u0e27",
+                        "justify": "right",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    },
+                    {
+                      "field": "remain",
+                      "visible": true,
+                      "editable": false,
+                      "render": "auto",
+                      "justify": "right",
+                      "align": "center",
+                      "resizable": false,
+                      "sortable": false,
+                      "sort": "none",
+                      "filter": {
+                        "enabled": false,
+                        "visible": "on-hover"
+                      },
+                      "viewPath": "",
+                      "viewParams": {},
+                      "boolean": "checkbox",
+                      "number": "value",
+                      "numberFormat": "0,0",
+                      "dateFormat": "MM/DD/YYYY",
+                      "width": 70,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "header": {
+                        "title": "\u0e04\u0e07\u0e40\u0e2b\u0e25\u0e37\u0e2d",
+                        "justify": "right",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "footer": {
+                        "title": "",
+                        "justify": "left",
+                        "align": "center",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "strict": false,
+                        "nullFormatValue": ""
+                      }
+                    }
+                  ],
+                  "pager": {
+                    "top": false,
+                    "bottom": false
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "#F3F6F9",
+                    "color": "#6B7A89",
+                    "fontSize": "13px",
+                    "fontWeight": "bold"
+                  },
+                  "rows": {
+                    "striped": {
+                      "enabled": true,
+                      "color": {
+                        "odd": "#FFFFFF",
+                        "even": "#F7F9FB"
+                      }
+                    },
+                    "style": {
+                      "fontSize": "16px",
+                      "color": "#1F2D3D"
+                    }
+                  },
+                  "style": {
+                    "borderStyle": "none"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "type": "property",
+                      "config": {
+                        "path": "view.custom.data.wms.parts"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.data": {
+      "persistent": true,
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "now(5000)"
+        },
+        "transforms": [
+          {
+            "type": "script",
+            "code": "\treturn receiving.data.getTv()"
+          }
+        ]
+      }
+    }
+  }
+}

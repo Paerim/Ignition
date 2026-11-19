@@ -1,0 +1,316 @@
+{
+  "custom": {},
+  "params": {
+    "orderNo": "CCR-20261119-01-ABC",
+    "supplier": "ABC",
+    "supplierName": "ABC Co., Ltd.",
+    "parts": 2,
+    "qty": 40,
+    "scanned": 0,
+    "statusText": "\u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32",
+    "statusColor": "#F2994A",
+    "selected": false
+  },
+  "props": {
+    "defaultSize": {
+      "width": 360,
+      "height": 86
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderRadius": "8px",
+        "padding": "8px 10px",
+        "margin": "4px 0",
+        "cursor": "pointer",
+        "backgroundColor": "#F7F9FB"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Top"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "alignItems": "center"
+          }
+        },
+        "position": {
+          "basis": "22px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "OrderNo"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "color": "#1F2D3D"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.orderNo"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Status"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "11px",
+                "color": "#FFFFFF",
+                "borderRadius": "10px",
+                "padding": "0 8px",
+                "textAlign": "center",
+                "whiteSpace": "nowrap"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.statusText"
+                  }
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.statusColor"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Supplier"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "13px",
+            "color": "#6B7A89"
+          }
+        },
+        "position": {
+          "basis": "18px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "concat({view.params.supplierName}, '  -  ', {view.params.parts}, ' \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23')"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Prog"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "alignItems": "center",
+            "gap": "8px"
+          }
+        },
+        "position": {
+          "basis": "22px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.progress",
+            "version": 0,
+            "meta": {
+              "name": "Bar"
+            },
+            "props": {
+              "value": 0,
+              "max": 1,
+              "bar": {
+                "color": "#2DB84B"
+              },
+              "track": {
+                "color": "#E6EDF3"
+              },
+              "valueDisplay": {
+                "enabled": false
+              },
+              "style": {
+                "height": "8px",
+                "borderRadius": "4px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.scanned"
+                  }
+                }
+              },
+              "props.max": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.qty"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Qty"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontSize": "13px",
+                "color": "#1F2D3D",
+                "textAlign": "right"
+              }
+            },
+            "position": {
+              "basis": "80px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat({view.params.scanned}, ' / ', {view.params.qty}, ' \u0e0a\u0e34\u0e49\u0e19')"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "propConfig": {
+      "props.style.border": {
+        "binding": {
+          "type": "expr",
+          "config": {
+            "expression": "if({view.params.selected}, '2px solid #2E86DE', '1px solid #D9E1E8')"
+          }
+        }
+      }
+    },
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tsystem.perspective.sendMessage('rcvSelectOrder', {'orderNo': self.view.params.orderNo}, scope='page')"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    }
+  },
+  "propConfig": {
+    "params.orderNo": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.supplier": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.supplierName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.parts": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.qty": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.scanned": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.statusText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.statusColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selected": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

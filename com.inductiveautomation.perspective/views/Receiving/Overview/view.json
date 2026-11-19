@@ -1,0 +1,356 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1000,
+      "height": 500
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#EEF2F6",
+        "fontFamily": "Segoe UI, Tahoma, Arial, sans-serif"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Title"
+        },
+        "props": {
+          "text": "Receiving Station",
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": "28px",
+            "fontWeight": "bold",
+            "backgroundColor": "#14304A",
+            "paddingLeft": "24px"
+          }
+        },
+        "position": {
+          "basis": "70px",
+          "grow": 0,
+          "shrink": 0
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Links"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "justifyContent": "center",
+            "alignItems": "flex-start",
+            "flexWrap": "wrap",
+            "padding": "30px"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Tv"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": "10px",
+                "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+                "overflow": "hidden",
+                "padding": "20px",
+                "cursor": "pointer",
+                "margin": "12px",
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "260px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Icon"
+                },
+                "props": {
+                  "path": "material/tv",
+                  "color": "#2E86DE"
+                },
+                "position": {
+                  "basis": "90px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "T"
+                },
+                "props": {
+                  "text": "Smart TV",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "22px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "36px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "S"
+                },
+                "props": {
+                  "text": "Truck Receiving Monitoring + Mini WMS",
+                  "style": {
+                    "color": "#6B7A89",
+                    "fontSize": "14px",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate('/receiving/tv')"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Hmi"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": "10px",
+                "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+                "overflow": "hidden",
+                "padding": "20px",
+                "cursor": "pointer",
+                "margin": "12px",
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "260px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Icon"
+                },
+                "props": {
+                  "path": "material/touch_app",
+                  "color": "#2DB84B"
+                },
+                "position": {
+                  "basis": "90px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "T"
+                },
+                "props": {
+                  "text": "HMI",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "22px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "36px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "S"
+                },
+                "props": {
+                  "text": "Truck Arrive / Truck Departure",
+                  "style": {
+                    "color": "#6B7A89",
+                    "fontSize": "14px",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate('/receiving/hmi')"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Handheld"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": "10px",
+                "boxShadow": "0 1px 4px rgba(20,48,74,0.18)",
+                "overflow": "hidden",
+                "padding": "20px",
+                "cursor": "pointer",
+                "margin": "12px",
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "basis": "260px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.icon",
+                "version": 0,
+                "meta": {
+                  "name": "Icon"
+                },
+                "props": {
+                  "path": "material/smartphone",
+                  "color": "#F2994A"
+                },
+                "position": {
+                  "basis": "90px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "T"
+                },
+                "props": {
+                  "text": "Handheld",
+                  "style": {
+                    "color": "#1F2D3D",
+                    "fontSize": "22px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "36px",
+                  "grow": 0,
+                  "shrink": 0
+                }
+              },
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "S"
+                },
+                "props": {
+                  "text": "\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c CCR / \u0e2a\u0e41\u0e01\u0e19\u0e23\u0e31\u0e1a\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32",
+                  "style": {
+                    "color": "#6B7A89",
+                    "fontSize": "14px",
+                    "textAlign": "center"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate('/receiving/handheld')"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

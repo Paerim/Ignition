@@ -1,0 +1,128 @@
+{
+  "custom": {},
+  "params": {
+    "title": "\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c",
+    "value": 0,
+    "bg": "#E3F0FB",
+    "fg": "#1F6FA8"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 120,
+      "height": 100
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderRadius": "8px",
+        "padding": "8px 12px",
+        "border": "1px solid rgba(0,0,0,0.06)"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Title"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "15px",
+            "textAlign": "left",
+            "color": "#1F2D3D"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.title"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Value"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "fontSize": "38px",
+            "fontWeight": "bold",
+            "textAlign": "left"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.value"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.fg"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "type": "property",
+          "config": {
+            "path": "view.params.bg"
+          }
+        }
+      }
+    }
+  },
+  "propConfig": {
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bg": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.fg": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}
