@@ -1,0 +1,112 @@
+{
+  "custom": {},
+  "params": {
+    "name": "OP110A",
+    "status": "RUN"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 80,
+      "height": 80
+    }
+  },
+  "root": {
+    "type": "ia.container.coord",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Diamond"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "transform": "rotate(45deg)",
+            "borderRadius": "4px",
+            "borderStyle": "solid",
+            "borderWidth": "2px",
+            "backgroundColor": "#14263A"
+          }
+        },
+        "position": {
+          "x": 0.1875,
+          "y": 0.1875,
+          "width": 0.625,
+          "height": 0.625
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "case({view.params.status}, 'RUN', '#2DB84B', 'IDLE', '#E8C547', 'ALARM', '#E53935', '#7A8794')"
+              }
+            }
+          },
+          "props.style.boxShadow": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "concat('0 0 8px ', case({view.params.status}, 'RUN', '#2DB84B', 'IDLE', '#E8C547', 'ALARM', '#E53935', '#7A8794'))"
+              }
+            }
+          }
+        },
+        "children": []
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Name"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": "12px",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.35,
+          "width": 1.0,
+          "height": 0.3
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "replace({view.params.name}, 'OP', '')"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "propConfig": {
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.status": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

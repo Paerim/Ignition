@@ -1,0 +1,597 @@
+{
+  "custom": {},
+  "params": {
+    "ts": "",
+    "seq": "",
+    "line": "",
+    "point": "",
+    "result": "",
+    "process": "",
+    "detail": ""
+  },
+  "props": {
+    "defaultSize": {
+      "width": 420,
+      "height": 320
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "12px",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_ts"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Date/Time",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.ts"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_seq"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Seq.",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.seq"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_line"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Line",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.line"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_point"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Inspection point",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.point"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_result"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Result",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.result"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_process"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Process",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.process"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Row_detail"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #E3E8EE"
+          }
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "K"
+            },
+            "props": {
+              "text": "Defect",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "140px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "V"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.params.detail"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Actions"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "justifyContent": "flex-end",
+            "marginTop": "10px"
+          }
+        },
+        "position": {
+          "basis": "36px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "children": [
+          {
+            "type": "ia.input.button",
+            "version": 0,
+            "meta": {
+              "name": "Close"
+            },
+            "props": {
+              "text": "Close",
+              "style": {
+                "backgroundColor": "#2E6DB4"
+              }
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup('abnormalDetail')"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "propConfig": {
+    "params.ts": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.seq": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.line": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.point": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.result": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.process": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.detail": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}
