@@ -43,9 +43,3 @@ CREATE TABLE hub_line_status (
     performance FLOAT NOT NULL,     -- %
     updated     DATETIME
 );
-
-CREATE TABLE hub_robot_status (
-    robot   VARCHAR(10) PRIMARY KEY, -- OP010, OP050, OP110A ... (see ROBOTS in code.py)
-    status  VARCHAR(10) NOT NULL,    -- RUN | IDLE | ALARM | STOP
-    updated DATETIME
-);

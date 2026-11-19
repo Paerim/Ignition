@@ -17,8 +17,6 @@ DB = "HUB4x4"
 PERIODS = ["Hourly", "Daily", "Weekly", "Monthly"]
 POINTS = ["A", "B", "C", "D", "E", "F"]
 LINES = ["110A", "110B", "120A", "120B", "130A"]
-ROBOTS = ["OP010", "OP050", "OP110A", "OP110B", "OP120A", "OP120B",
-          "OP125B", "OP130A", "OP160C", "OP210", "OP285", "OP320"]
 DEFECTS = ["Scratch", "Dimensional", "Surface Defect", "Contamination", "Damage"]
 REPAIR_CAUSES = ["Repair A", "Repair B", "Repair C", "Repair D"]
 
@@ -163,10 +161,6 @@ def _simulate(period, start, end, point):
 		perf = rnd.choice([98, 98, 97, 96, 99]) if l != "130A" else rnd.choice([75, 82, 91])
 		lines.append({"line": l, "perf": perf, "color": perfColor(perf)})
 
-	robots = {}
-	for r in ROBOTS:
-		robots[r] = rnd.choice(["RUN"] * 7 + ["IDLE", "IDLE", "ALARM"])
-
 	abnormal = []
 	now = system.date.now()
 	for i in range(rnd.randint(1, 4)):
@@ -195,7 +189,6 @@ def _simulate(period, start, end, point):
 		"topDefects": topDefects,
 		"repairCause": repairCause,
 		"lines": lines,
-		"robots": robots,
 		"abnormal": abnormal,
 	}
 
@@ -258,9 +251,6 @@ def _fromDb(period, start, end, point):
 	lines = [{"line": r["line"], "perf": r["performance"], "color": perfColor(r["performance"])}
 	         for r in _rows(system.db.runQuery("SELECT line, performance FROM hub_line_status ORDER BY line", DB))]
 
-	robots = dict([(r["robot"], r["status"]) for r in _rows(
-		system.db.runQuery("SELECT robot, status FROM hub_robot_status", DB))])
-
 	abnormal = []
 	for r in _rows(system.db.runPrepQuery(
 			"SELECT ts, seq, line, point, result, process, defect_type FROM hub_abnormal "
@@ -274,5 +264,5 @@ def _fromDb(period, start, end, point):
 		"repair": {"total": total, "closed": closed, "onProcess": total - closed},
 		"controlChart": {"point": point, "lcl": lcl, "ucl": ucl, "target": target, "points": points},
 		"ngTrend": ngTrend, "opPerformance": opPerformance, "topDefects": topDefects,
-		"repairCause": repairCause, "lines": lines, "robots": robots, "abnormal": abnormal,
+		"repairCause": repairCause, "lines": lines, "abnormal": abnormal,
 	}
