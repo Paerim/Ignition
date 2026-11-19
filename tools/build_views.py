@@ -7,6 +7,7 @@ Generates the Perspective views for the HUB 4x4 Quality Dashboard.
 Writes into com.inductiveautomation.perspective/views/HUB4x4/... and the page config.
 Edit layout/colours here and re-run, rather than hand-editing the view.json files.
 """
+import base64
 import json
 import os
 from datetime import datetime, timezone
@@ -33,6 +34,22 @@ PURPLE = "#8E2BA8"
 ABN_BG = "#CFEFFB"
 
 DESIGN_W, DESIGN_H = 1600, 900
+LAYOUT_DIR = os.path.join(ROOT, "assets", "layout")   # made by tools/make_layout_assets.py
+
+# Inspection point -> stations highlighted on the line layout
+POINT_STATIONS = {
+    "A": "110A / 110B",
+    "B": "120A / 120B",
+    "C": "130A / 130B / 130C",
+    "D": "140A / 140B / 140C",
+    "E": "125A / 125B",
+    "F": "Q",
+}
+
+
+def data_uri(png):
+    with open(os.path.join(LAYOUT_DIR, png), "rb") as f:
+        return "data:image/png;base64," + base64.b64encode(f.read()).decode("ascii")
 
 
 # ------------------------------------------------------------------ helpers
@@ -286,25 +303,6 @@ def build_line_row():
                 {"line": "110A", "perf": 98, "color": "#2DB84B"})
 
 
-def build_robot_tile():
-    status_color = ("case({view.params.status}, 'RUN', '#2DB84B', 'IDLE', '" + YELLOW +
-                    "', 'ALARM', '#E53935', '#7A8794')")
-    root = comp("ia.container.coord", "root", {"mode": "percent", "style": {"overflow": "visible"}},
-                children=[
-        flex("Diamond", [], "row", {"transform": "rotate(45deg)", "borderRadius": "4px",
-                                    "borderStyle": "solid", "borderWidth": "2px",
-                                    "backgroundColor": "#14263A"},
-             P(15, 15, 50, 50, 80, 80), {
-                 "props.style.borderColor": expr(status_color),
-                 "props.style.boxShadow": expr("concat('0 0 8px ', " + status_color + ")"),
-             }),
-        label("Name", "", {"color": "#FFFFFF", "fontSize": "12px", "fontWeight": "bold",
-                           "textAlign": "center"}, P(0, 28, 80, 24, 80, 80),
-              {"props.text": expr("replace({view.params.name}, 'OP', '')")}),
-    ])
-    return view(root, {"width": 80, "height": 80}, {"name": "OP110A", "status": "RUN"})
-
-
 def build_abnormal_item():
     md = ("concat('**', {view.params.ts}, '** Seq.', {view.params.seq}, "
           "'  \\n**Detail :** point ', {view.params.point}, ' (', {view.params.result}, ') - ', "
@@ -447,35 +445,44 @@ def build_dashboard():
     card["children"][0]["props"]["style"].update({"fontSize": "16px", "color": "#FFFFFF"})
     ch.append(card)
 
-    # ---- KUKA robot status
-    stations = [  # name, x, y in a 660 x 345 panel
-        ("OP110A", 20, 60), ("OP120B", 105, 40), ("OP125B", 190, 40), ("OP120A", 275, 40),
-        ("OP210", 360, 40), ("OP320", 445, 40), ("OP050", 530, 40),
-        ("OP110B", 20, 160), ("OP130A", 190, 170), ("OP160C", 275, 170), ("OP285", 445, 160),
-        ("OP010", 530, 160),
+    # ---- line layout: picture + highlight of the selected point's stations
+    LW, LH = 660, 345
+    img_pos = P(10, 42, 640, 159, LW, LH)       # keeps the 1497 x 372 picture ratio
+    stations_expr = "case({view.custom.selectedPoint}, %s, '')" % ", ".join(
+        "'%s', '%s'" % kv for kv in POINT_STATIONS.items())
+    lay = [
+        label("Title", "", {"color": INK, "fontSize": "16px", "fontWeight": "bold", "paddingLeft": "4px"},
+              P(10, 6, 640, 30, LW, LH), {"props.text": expr(
+                  "concat('Line Layout :  Point ', {view.custom.selectedPoint}, '  >  Station ', " + stations_expr + ")")}),
+        comp("ia.display.image", "Layout", {"source": data_uri("base.png"), "fit": {"mode": "contain"},
+                                            "style": {}}, img_pos),
     ]
-    tiles = [label("Title", "KUKA Robot Status", {"color": "#4FD1E8", "fontSize": "15px"}, P(16, 6, 300, 26, 660, 345))]
-    tiles.append(flex("Conveyor", [], "row", {"borderTop": "2px dashed #2F5D7C"}, P(40, 140, 580, 4, 660, 345)))
-    for nm, x, y in stations:
-        tiles.append(comp("ia.display.view", nm, {
-            "path": "HUB4x4/Components/RobotTile", "params": {"name": nm, "status": "RUN"},
-            "useDefaultViewWidth": False, "useDefaultViewHeight": False,
-        }, P(x, y, 84, 84, 660, 345), {"props.params.status": prop("view.custom.data.robots." + nm)}))
-    legend = []
-    for st, col in [("RUN", "#2DB84B"), ("IDLE", YELLOW), ("ALARM", "#E53935"), ("STOP", "#7A8794")]:
-        legend.append(flex("Lg" + st, [
-            flex("Sw", [], "row", {"width": "10px", "height": "10px", "backgroundColor": col,
-                                   "transform": "rotate(45deg)"}, F("10px")),
-            label("Tx", st, {"color": DARK_INK, "fontSize": "12px", "paddingLeft": "6px"}, F("auto")),
-        ], "row", {"alignItems": "center", "marginRight": "16px"}, F("auto")))
-    tiles.append(flex("Legend", legend, "row", {"alignItems": "center"}, P(16, 300, 620, 30, 660, 345)))
-    ch.append(comp("ia.container.coord", "RobotStatus", {
-        "mode": "percent",
-        "style": {"backgroundColor": DARK, "borderRadius": "4px", "border": "1px solid #24476A",
-                  "backgroundImage": "linear-gradient(rgba(79,209,232,0.06) 1px, transparent 1px),"
-                                     "linear-gradient(90deg, rgba(79,209,232,0.06) 1px, transparent 1px)",
-                  "backgroundSize": "24px 24px"},
-    }, P(670, 186, 660, 345), children=tiles))
+    for p in POINT_STATIONS:
+        ov = comp("ia.display.image", "Highlight" + p, {
+            "source": data_uri("point_%s.png" % p), "fit": {"mode": "contain"},
+            "style": {"filter": "drop-shadow(0 0 4px #FF6A00) drop-shadow(0 0 8px rgba(255,140,0,0.8))",
+                      "pointerEvents": "none"},
+        }, img_pos, {"meta.visible": expr("{view.custom.selectedPoint} = '%s'" % p)})
+        lay.append(ov)
+    chips = []
+    for p, st in POINT_STATIONS.items():
+        on = "{view.custom.selectedPoint} = '%s'" % p
+        chips.append(flex("Chip" + p, [
+            label("P", "Point " + p, {"fontSize": "14px", "fontWeight": "bold", "textAlign": "center"}, F("auto", 1, 1),
+                  {"props.style.color": expr("if(%s, '#FFFFFF', '%s')" % (on, INK))}),
+            label("S", st, {"fontSize": "12px", "textAlign": "center"}, F("auto", 1, 1),
+                  {"props.style.color": expr("if(%s, '#FFFFFF', '%s')" % (on, MUTED))}),
+        ], "column", {"borderRadius": "6px", "cursor": "pointer", "margin": "4px", "padding": "4px 2px",
+                      "border": "1px solid #D5DDE5"}, F("0", 1, 1), {
+            "props.style.backgroundColor": expr("if(%s, '#F28C28', '#F4F6F8')" % on),
+        }))
+        chips[-1]["events"] = {"dom": {"onClick": script("self.view.custom.selectedPoint = '%s'" % p)}}
+    lay.append(flex("PointMap", chips, "row", {"alignItems": "stretch"}, P(10, 222, 640, 70, LW, LH)))
+    lay.append(label("Hint", "Click an Inspection Item (or a point above) to highlight where it is measured on the line.",
+                     {"color": MUTED, "fontSize": "12px", "paddingLeft": "8px"}, P(10, 300, 640, 30, LW, LH)))
+    ch.append(comp("ia.container.coord", "LineLayout", {
+        "mode": "percent", "style": tile_style(),
+    }, P(670, 186, 660, 345), children=lay))
 
     # ---- production line
     ch.append(flex("ProductionLine", [
@@ -594,7 +601,6 @@ if __name__ == "__main__":
     write_view("HUB4x4/Components/KpiTile", build_kpi_tile())
     write_view("HUB4x4/Components/BarRow", build_bar_row())
     write_view("HUB4x4/Components/LineStatusRow", build_line_row())
-    write_view("HUB4x4/Components/RobotTile", build_robot_tile())
     write_view("HUB4x4/Components/AbnormalItem", build_abnormal_item())
     write_view("HUB4x4/Popups/AbnormalDetail", build_abnormal_popup())
     write_page_config()
