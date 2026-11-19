@@ -1,0 +1,139 @@
+{
+  "custom": {},
+  "params": {
+    "ts": "",
+    "seq": "",
+    "line": "",
+    "point": "",
+    "result": "",
+    "process": "",
+    "detail": ""
+  },
+  "props": {
+    "defaultSize": {
+      "width": 480,
+      "height": 84
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottom": "1px solid #9FC9DA",
+        "padding": "6px 8px"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.display.markdown",
+        "version": 0,
+        "meta": {
+          "name": "Text"
+        },
+        "props": {
+          "source": "",
+          "markdown": {
+            "escapeHtml": true
+          },
+          "style": {
+            "color": "#1F2D3D",
+            "fontSize": "13px",
+            "lineHeight": "1.35"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "concat('**', {view.params.ts}, '** Seq.', {view.params.seq}, '  \\n**Detail :** point ', {view.params.point}, ' (', {view.params.result}, ') - ', {view.params.detail}, '  \\n**Process:** ', {view.params.process})"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "More"
+        },
+        "props": {
+          "text": "More detail",
+          "style": {
+            "color": "#1565C0",
+            "textDecoration": "underline",
+            "cursor": "pointer",
+            "fontSize": "13px"
+          }
+        },
+        "position": {
+          "basis": "18px",
+          "grow": 0,
+          "shrink": 0
+        },
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.openPopup('abnormalDetail', 'HUB4x4/Popups/AbnormalDetail',\n\t\tparams={'ts': self.view.params.ts, 'seq': self.view.params.seq, 'line': self.view.params.line,\n\t\t        'point': self.view.params.point, 'result': self.view.params.result,\n\t\t        'process': self.view.params.process, 'detail': self.view.params.detail},\n\t\ttitle='Abnormal Detail', modal=True, showCloseIcon=True, draggable=True,\n\t\tposition={'width': 420, 'height': 320})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        }
+      }
+    ],
+    "propConfig": {
+      "props.style.borderLeft": {
+        "binding": {
+          "type": "expr",
+          "config": {
+            "expression": "if({view.params.result} = 'NG', '4px solid #E53935', '4px solid #F28C28')"
+          }
+        }
+      }
+    }
+  },
+  "propConfig": {
+    "params.ts": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.seq": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.line": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.point": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.result": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.process": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.detail": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "/": {
+      "title": "HUB 4x4 Quality",
+      "viewPath": "HUB4x4/QualityDashboard"
+    }
+  },
+  "sharedDocks": {}
+}

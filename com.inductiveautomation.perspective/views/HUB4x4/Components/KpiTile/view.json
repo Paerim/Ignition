@@ -1,0 +1,103 @@
+{
+  "custom": {},
+  "params": {
+    "title": "FG",
+    "value": "0"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 140,
+      "height": 95
+    }
+  },
+  "root": {
+    "type": "ia.container.flex",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "4px",
+        "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+        "overflow": "hidden",
+        "justifyContent": "center"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Title"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#1F2D3D",
+            "fontSize": "18px",
+            "textAlign": "center"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.title"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Value"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#1F2D3D",
+            "fontSize": "24px",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 1,
+          "shrink": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.params.value"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "propConfig": {
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  }
+}

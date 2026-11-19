@@ -1,0 +1,4660 @@
+{
+  "custom": {
+    "period": "Daily",
+    "selectedPoint": "A",
+    "startDate": null,
+    "endDate": null,
+    "data": {}
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "root": {
+    "type": "ia.container.coord",
+    "version": 0,
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "backgroundColor": "#1B5E75",
+        "border": "4px solid #0E3F52",
+        "fontFamily": "Segoe UI, Arial, sans-serif"
+      }
+    },
+    "children": [
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "backgroundColor": "#0E3F52"
+          }
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 0.06889
+        },
+        "children": []
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Title"
+        },
+        "props": {
+          "text": "HUB 4x4 Quality Dashboard",
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": "28px",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "position": {
+          "x": 0.28125,
+          "y": 0.00667,
+          "width": 0.4375,
+          "height": 0.05556
+        }
+      },
+      {
+        "type": "ia.display.label",
+        "version": 0,
+        "meta": {
+          "name": "Updated"
+        },
+        "props": {
+          "text": "",
+          "style": {
+            "color": "#9CC3D3",
+            "fontSize": "12px"
+          }
+        },
+        "position": {
+          "x": 0.0125,
+          "y": 0.02,
+          "width": 0.1875,
+          "height": 0.02889
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "concat('Updated: ', {view.custom.data.updated})"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "DateRange"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "backgroundColor": "#3E7FB8",
+            "border": "2px solid #FFFFFF",
+            "borderRadius": "6px",
+            "alignItems": "center",
+            "padding": "0 8px",
+            "gap": "4px"
+          }
+        },
+        "position": {
+          "x": 0.71875,
+          "y": 0.01,
+          "width": 0.26875,
+          "height": 0.04889
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "L1"
+            },
+            "props": {
+              "text": "Date : from",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "15px",
+                "whiteSpace": "nowrap"
+              }
+            },
+            "position": {
+              "basis": "86px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.input.date-time-input",
+            "version": 0,
+            "meta": {
+              "name": "From"
+            },
+            "props": {
+              "pickerType": "date",
+              "format": "DD/MM/YY",
+              "style": {
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.startDate",
+                    "bidirectional": true
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "L2"
+            },
+            "props": {
+              "text": "to",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "15px",
+                "textAlign": "center"
+              }
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.input.date-time-input",
+            "version": 0,
+            "meta": {
+              "name": "To"
+            },
+            "props": {
+              "pickerType": "date",
+              "format": "DD/MM/YY",
+              "style": {
+                "fontSize": "14px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.endDate",
+                    "bidirectional": true
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.display.view",
+        "version": 0,
+        "meta": {
+          "name": "KpiPlan"
+        },
+        "props": {
+          "path": "HUB4x4/Components/KpiTile",
+          "params": {
+            "title": "Total Plan",
+            "value": ""
+          },
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false
+        },
+        "position": {
+          "x": 0.0125,
+          "y": 0.08444,
+          "width": 0.10938,
+          "height": 0.10556
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.kpi.plan"
+              },
+              "transforms": [
+                {
+                  "type": "format",
+                  "formatType": "numeric",
+                  "formatValue": "#,##0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.view",
+        "version": 0,
+        "meta": {
+          "name": "KpiFG"
+        },
+        "props": {
+          "path": "HUB4x4/Components/KpiTile",
+          "params": {
+            "title": "FG",
+            "value": ""
+          },
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false
+        },
+        "position": {
+          "x": 0.13125,
+          "y": 0.08444,
+          "width": 0.07812,
+          "height": 0.10556
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.kpi.fg"
+              },
+              "transforms": [
+                {
+                  "type": "format",
+                  "formatType": "numeric",
+                  "formatValue": "#,##0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.view",
+        "version": 0,
+        "meta": {
+          "name": "KpiOK"
+        },
+        "props": {
+          "path": "HUB4x4/Components/KpiTile",
+          "params": {
+            "title": "OK",
+            "value": ""
+          },
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false
+        },
+        "position": {
+          "x": 0.21563,
+          "y": 0.08444,
+          "width": 0.07812,
+          "height": 0.10556
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.kpi.ok"
+              },
+              "transforms": [
+                {
+                  "type": "format",
+                  "formatType": "numeric",
+                  "formatValue": "#,##0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.view",
+        "version": 0,
+        "meta": {
+          "name": "KpiNG"
+        },
+        "props": {
+          "path": "HUB4x4/Components/KpiTile",
+          "params": {
+            "title": "NG",
+            "value": ""
+          },
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false
+        },
+        "position": {
+          "x": 0.3,
+          "y": 0.08444,
+          "width": 0.07812,
+          "height": 0.10556
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.kpi.ng"
+              },
+              "transforms": [
+                {
+                  "type": "format",
+                  "formatType": "numeric",
+                  "formatValue": "#,##0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.display.view",
+        "version": 0,
+        "meta": {
+          "name": "KpiPPM"
+        },
+        "props": {
+          "path": "HUB4x4/Components/KpiTile",
+          "params": {
+            "title": "PPM",
+            "value": ""
+          },
+          "useDefaultViewWidth": false,
+          "useDefaultViewHeight": false
+        },
+        "position": {
+          "x": 0.38438,
+          "y": 0.08444,
+          "width": 0.07812,
+          "height": 0.10556
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "type": "property",
+              "config": {
+                "path": "view.custom.data.kpi.ppm"
+              },
+              "transforms": [
+                {
+                  "type": "format",
+                  "formatType": "numeric",
+                  "formatValue": "#,##0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "RepairStatus"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden",
+            "padding": "4px"
+          }
+        },
+        "position": {
+          "x": 0.47187,
+          "y": 0.08444,
+          "width": 0.29375,
+          "height": 0.10556
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Repair status",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "18px",
+                "textAlign": "center"
+              }
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Cols"
+            },
+            "props": {
+              "direction": "row",
+              "style": {}
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Total"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {}
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Total",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "17px",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "V"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "20px",
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.repair.total"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "Closed"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {}
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "Closed",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "17px",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "V"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "20px",
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.repair.closed"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "OnProcess"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {}
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "children": [
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "T"
+                    },
+                    "props": {
+                      "text": "On Process",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "17px",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    }
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "V"
+                    },
+                    "props": {
+                      "text": "",
+                      "style": {
+                        "color": "#1F2D3D",
+                        "fontSize": "20px",
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "type": "property",
+                          "config": {
+                            "path": "view.custom.data.repair.onProcess"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ia.input.button",
+        "version": 0,
+        "meta": {
+          "name": "BtnHourly"
+        },
+        "props": {
+          "text": "Hourly",
+          "style": {
+            "fontSize": "18px",
+            "borderRadius": "6px",
+            "border": "none",
+            "color": "#FFFFFF"
+          }
+        },
+        "position": {
+          "x": 0.775,
+          "y": 0.08,
+          "width": 0.105,
+          "height": 0.05111
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.period} = 'Hourly', '#2E6DB4', '#A9C4EB')"
+              }
+            }
+          }
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\thub4x4.data.applyPeriod(self.view, 'Hourly')"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.input.button",
+        "version": 0,
+        "meta": {
+          "name": "BtnDaily"
+        },
+        "props": {
+          "text": "Daily",
+          "style": {
+            "fontSize": "18px",
+            "borderRadius": "6px",
+            "border": "none",
+            "color": "#FFFFFF"
+          }
+        },
+        "position": {
+          "x": 0.8825,
+          "y": 0.08,
+          "width": 0.105,
+          "height": 0.05111
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.period} = 'Daily', '#2E6DB4', '#A9C4EB')"
+              }
+            }
+          }
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\thub4x4.data.applyPeriod(self.view, 'Daily')"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.input.button",
+        "version": 0,
+        "meta": {
+          "name": "BtnWeekly"
+        },
+        "props": {
+          "text": "Weekly",
+          "style": {
+            "fontSize": "18px",
+            "borderRadius": "6px",
+            "border": "none",
+            "color": "#FFFFFF"
+          }
+        },
+        "position": {
+          "x": 0.775,
+          "y": 0.13778,
+          "width": 0.105,
+          "height": 0.05111
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.period} = 'Weekly', '#2E6DB4', '#A9C4EB')"
+              }
+            }
+          }
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\thub4x4.data.applyPeriod(self.view, 'Weekly')"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.input.button",
+        "version": 0,
+        "meta": {
+          "name": "BtnMonthly"
+        },
+        "props": {
+          "text": "Monthly",
+          "style": {
+            "fontSize": "18px",
+            "borderRadius": "6px",
+            "border": "none",
+            "color": "#FFFFFF"
+          }
+        },
+        "position": {
+          "x": 0.8825,
+          "y": 0.13778,
+          "width": 0.105,
+          "height": 0.05111
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.period} = 'Monthly', '#2E6DB4', '#A9C4EB')"
+              }
+            }
+          }
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\thub4x4.data.applyPeriod(self.view, 'Monthly')"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "InspectionItems"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden",
+            "paddingBottom": "8px"
+          }
+        },
+        "position": {
+          "x": 0.0125,
+          "y": 0.20667,
+          "width": 0.10938,
+          "height": 0.38333
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Head"
+            },
+            "props": {
+              "text": "Inspection Item",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "17px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "position": {
+              "basis": "52px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointA"
+            },
+            "props": {
+              "text": "Point A",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'A', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'A', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'A'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointB"
+            },
+            "props": {
+              "text": "Point B",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'B', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'B', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'B'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointC"
+            },
+            "props": {
+              "text": "Point C",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'C', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'C', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'C'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointD"
+            },
+            "props": {
+              "text": "Point D",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'D', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'D', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'D'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointE"
+            },
+            "props": {
+              "text": "Point E",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'E', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'E', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'E'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "PointF"
+            },
+            "props": {
+              "text": "Point F",
+              "style": {
+                "fontSize": "17px",
+                "textAlign": "center",
+                "cursor": "pointer",
+                "borderRadius": "4px",
+                "margin": "1px 10px"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'F', '#2E6DB4', 'transparent')"
+                  }
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "if({view.custom.selectedPoint} = 'F', '#FFFFFF', '#1F2D3D')"
+                  }
+                }
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.selectedPoint = 'F'"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "ControlChartCard"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#0D1B2A",
+            "borderRadius": "4px",
+            "border": "2px solid #F28C28"
+          }
+        },
+        "position": {
+          "x": 0.12812,
+          "y": 0.20667,
+          "width": 0.28437,
+          "height": 0.38333
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "16px",
+                "textAlign": "center",
+                "paddingTop": "4px"
+              }
+            },
+            "position": {
+              "basis": "22px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "type": "expr",
+                  "config": {
+                    "expression": "concat('Hub 4x4 : Point ', {view.custom.selectedPoint}, '    (LCL ', numberFormat({view.custom.data.controlChart.lcl}, '0.00'), ' / UCL ', numberFormat({view.custom.data.controlChart.ucl}, '0.00'), ')')"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.chart.xy",
+            "version": 0,
+            "meta": {
+              "name": "ControlChart"
+            },
+            "props": {
+              "dataSources": {
+                "points": []
+              },
+              "xAxes": [
+                {
+                  "name": "x",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#C9D6E3"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "category",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0.##",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#C9D6E3",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#C9D6E3",
+                      "opacity": 0,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "yAxes": [
+                {
+                  "name": "y",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#C9D6E3"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "value",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0.00",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#C9D6E3",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#C9D6E3",
+                      "opacity": 0.15,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "series": [
+                {
+                  "name": "ucl",
+                  "label": {
+                    "text": "UCL"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "points",
+                    "x": "seq",
+                    "y": "ucl"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#E8C547",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#E8C547",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 1.5,
+                        "opacity": 1,
+                        "color": "#E8C547",
+                        "dashArray": "6,4"
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#E8C547"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": false,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": false,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#E8C547",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#E8C547",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                },
+                {
+                  "name": "lcl",
+                  "label": {
+                    "text": "LCL"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "points",
+                    "x": "seq",
+                    "y": "lcl"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#E8C547",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#E8C547",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 1.5,
+                        "opacity": 1,
+                        "color": "#E8C547",
+                        "dashArray": "6,4"
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#E8C547"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": false,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": false,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#E8C547",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#E8C547",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                },
+                {
+                  "name": "target",
+                  "label": {
+                    "text": "Target"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "points",
+                    "x": "seq",
+                    "y": "target"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#6C7A89",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#6C7A89",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 1,
+                        "opacity": 1,
+                        "color": "#6C7A89",
+                        "dashArray": "2,4"
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#6C7A89"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": false,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": false,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#6C7A89",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#6C7A89",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                },
+                {
+                  "name": "value",
+                  "label": {
+                    "text": "Value"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "points",
+                    "x": "seq",
+                    "y": "value"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#9FB3C8",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#9FB3C8",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 1.5,
+                        "opacity": 1,
+                        "color": "#9FB3C8",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#9FB3C8"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": true,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": true,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#3AB6E8",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#3AB6E8",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                },
+                {
+                  "name": "warn",
+                  "label": {
+                    "text": "Warning"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "points",
+                    "x": "seq",
+                    "y": "warn"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#F28C28",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#F28C28",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 0,
+                        "opacity": 0,
+                        "color": "#F28C28",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#F28C28"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": true,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": true,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#F28C28",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#F28C28",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                }
+              ],
+              "legend": {
+                "enabled": true,
+                "position": "bottom"
+              },
+              "cursor": {
+                "enabled": false,
+                "lineX": {
+                  "enabled": true
+                },
+                "lineY": {
+                  "enabled": false
+                }
+              },
+              "style": {
+                "backgroundColor": "#0D1B2A"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.dataSources.points": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.controlChart.points"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.coord",
+        "version": 0,
+        "meta": {
+          "name": "RobotStatus"
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "backgroundColor": "#0D1B2A",
+            "borderRadius": "4px",
+            "border": "1px solid #24476A",
+            "backgroundImage": "linear-gradient(rgba(79,209,232,0.06) 1px, transparent 1px),linear-gradient(90deg, rgba(79,209,232,0.06) 1px, transparent 1px)",
+            "backgroundSize": "24px 24px"
+          }
+        },
+        "position": {
+          "x": 0.41875,
+          "y": 0.20667,
+          "width": 0.4125,
+          "height": 0.38333
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "KUKA Robot Status",
+              "style": {
+                "color": "#4FD1E8",
+                "fontSize": "15px"
+              }
+            },
+            "position": {
+              "x": 0.02424,
+              "y": 0.01739,
+              "width": 0.45455,
+              "height": 0.07536
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Conveyor"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "borderTop": "2px dashed #2F5D7C"
+              }
+            },
+            "position": {
+              "x": 0.06061,
+              "y": 0.4058,
+              "width": 0.87879,
+              "height": 0.01159
+            },
+            "children": []
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP110A"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP110A",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.0303,
+              "y": 0.17391,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP110A"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP120B"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP120B",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.15909,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP120B"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP125B"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP125B",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.28788,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP125B"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP120A"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP120A",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.41667,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP120A"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP210"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP210",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.54545,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP210"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP320"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP320",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.67424,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP320"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP050"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP050",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.80303,
+              "y": 0.11594,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP050"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP110B"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP110B",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.0303,
+              "y": 0.46377,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP110B"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP130A"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP130A",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.28788,
+              "y": 0.49275,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP130A"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP160C"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP160C",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.41667,
+              "y": 0.49275,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP160C"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP285"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP285",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.67424,
+              "y": 0.46377,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP285"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.display.view",
+            "version": 0,
+            "meta": {
+              "name": "OP010"
+            },
+            "props": {
+              "path": "HUB4x4/Components/RobotTile",
+              "params": {
+                "name": "OP010",
+                "status": "RUN"
+              },
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": false
+            },
+            "position": {
+              "x": 0.80303,
+              "y": 0.46377,
+              "width": 0.12727,
+              "height": 0.24348
+            },
+            "propConfig": {
+              "props.params.status": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.robots.OP010"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "Legend"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center"
+              }
+            },
+            "position": {
+              "x": 0.02424,
+              "y": 0.86957,
+              "width": 0.93939,
+              "height": 0.08696
+            },
+            "children": [
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "LgRUN"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center",
+                    "marginRight": "16px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sw"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "width": "10px",
+                        "height": "10px",
+                        "backgroundColor": "#2DB84B",
+                        "transform": "rotate(45deg)"
+                      }
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Tx"
+                    },
+                    "props": {
+                      "text": "RUN",
+                      "style": {
+                        "color": "#C9D6E3",
+                        "fontSize": "12px",
+                        "paddingLeft": "6px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "LgIDLE"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center",
+                    "marginRight": "16px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sw"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "width": "10px",
+                        "height": "10px",
+                        "backgroundColor": "#E8C547",
+                        "transform": "rotate(45deg)"
+                      }
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Tx"
+                    },
+                    "props": {
+                      "text": "IDLE",
+                      "style": {
+                        "color": "#C9D6E3",
+                        "fontSize": "12px",
+                        "paddingLeft": "6px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "LgALARM"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center",
+                    "marginRight": "16px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sw"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "width": "10px",
+                        "height": "10px",
+                        "backgroundColor": "#E53935",
+                        "transform": "rotate(45deg)"
+                      }
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Tx"
+                    },
+                    "props": {
+                      "text": "ALARM",
+                      "style": {
+                        "color": "#C9D6E3",
+                        "fontSize": "12px",
+                        "paddingLeft": "6px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ia.container.flex",
+                "version": 0,
+                "meta": {
+                  "name": "LgSTOP"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "alignItems": "center",
+                    "marginRight": "16px"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "ia.container.flex",
+                    "version": 0,
+                    "meta": {
+                      "name": "Sw"
+                    },
+                    "props": {
+                      "direction": "row",
+                      "style": {
+                        "width": "10px",
+                        "height": "10px",
+                        "backgroundColor": "#7A8794",
+                        "transform": "rotate(45deg)"
+                      }
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "grow": 0,
+                      "shrink": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "type": "ia.display.label",
+                    "version": 0,
+                    "meta": {
+                      "name": "Tx"
+                    },
+                    "props": {
+                      "text": "STOP",
+                      "style": {
+                        "color": "#C9D6E3",
+                        "fontSize": "12px",
+                        "paddingLeft": "6px"
+                      }
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 0,
+                      "shrink": 0
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "ProductionLine"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.8375,
+          "y": 0.20667,
+          "width": 0.15,
+          "height": 0.38333
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Head"
+            },
+            "props": {
+              "text": "Production Line",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "18px",
+                "textAlign": "center",
+                "borderBottom": "1px solid #D5DDE5"
+              }
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Sub"
+            },
+            "props": {
+              "text": "Last status & Performance",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "paddingLeft": "8px"
+              }
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Lines"
+            },
+            "props": {
+              "path": "HUB4x4/Components/LineStatusRow",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "overflowY": "auto"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.lines"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "NgTendency"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.0125,
+          "y": 0.60556,
+          "width": 0.35,
+          "height": 0.18667
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Total NG tendency",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "13px",
+                "textAlign": "center",
+                "paddingTop": "4px"
+              }
+            },
+            "position": {
+              "basis": "22px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.chart.xy",
+            "version": 0,
+            "meta": {
+              "name": "Chart"
+            },
+            "props": {
+              "dataSources": {
+                "trend": []
+              },
+              "xAxes": [
+                {
+                  "name": "x",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#5B6B7A"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "category",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0.##",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#5B6B7A",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#5B6B7A",
+                      "opacity": 0,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "yAxes": [
+                {
+                  "name": "y",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#5B6B7A"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "value",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": 0,
+                      "useStrict": true
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#5B6B7A",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#5B6B7A",
+                      "opacity": 0.15,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "series": [
+                {
+                  "name": "ng",
+                  "label": {
+                    "text": "NG"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "trend",
+                    "x": "bucket",
+                    "y": "ng"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "line",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#1F6FA8",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#1F6FA8",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 2.5,
+                        "opacity": 1,
+                        "color": "#1F6FA8",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#1F6FA8"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": true,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": true,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#1F6FA8",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#1F6FA8",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                }
+              ],
+              "legend": {
+                "enabled": false,
+                "position": "bottom"
+              },
+              "cursor": {
+                "enabled": false,
+                "lineX": {
+                  "enabled": true
+                },
+                "lineY": {
+                  "enabled": false
+                }
+              },
+              "style": {
+                "backgroundColor": "transparent"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.dataSources.trend": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.ngTrend"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "OpPerformance"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.0125,
+          "y": 0.80222,
+          "width": 0.35,
+          "height": 0.18667
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "OP Performance (NG by OP)",
+              "style": {
+                "color": "#5B6B7A",
+                "fontSize": "13px",
+                "textAlign": "center",
+                "paddingTop": "4px"
+              }
+            },
+            "position": {
+              "basis": "22px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.chart.xy",
+            "version": 0,
+            "meta": {
+              "name": "Chart"
+            },
+            "props": {
+              "dataSources": {
+                "op": []
+              },
+              "xAxes": [
+                {
+                  "name": "x",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#5B6B7A"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "category",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0.##",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#5B6B7A",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#5B6B7A",
+                      "opacity": 0,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "yAxes": [
+                {
+                  "name": "y",
+                  "label": {
+                    "enabled": false,
+                    "text": "",
+                    "color": "#5B6B7A"
+                  },
+                  "visible": true,
+                  "tooltip": {
+                    "enabled": false,
+                    "text": "",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "inPercent": false,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "value",
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "startCategory": "",
+                      "endCategory": "",
+                      "breakSize": 0.01
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "enabled": false,
+                      "timeUnit": "second",
+                      "count": 1,
+                      "skipEmptyPeriods": false
+                    },
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    },
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "format": "M/d"
+                  },
+                  "value": {
+                    "range": {
+                      "max": "",
+                      "min": 0,
+                      "useStrict": true
+                    },
+                    "logarithmic": false,
+                    "format": "#,##0",
+                    "break": {
+                      "enabled": false,
+                      "startValue": 0,
+                      "endValue": 100,
+                      "breakSize": 0.01
+                    }
+                  },
+                  "inversed": false,
+                  "appearance": {
+                    "opposite": false,
+                    "inside": false,
+                    "labels": {
+                      "color": "#5B6B7A",
+                      "opacity": 1
+                    },
+                    "grid": {
+                      "color": "#5B6B7A",
+                      "opacity": 0.15,
+                      "dashArray": "",
+                      "minDistance": null,
+                      "position": 0.5
+                    },
+                    "font": {
+                      "size": "11px",
+                      "weight": 400
+                    }
+                  }
+                }
+              ],
+              "series": [
+                {
+                  "name": "ng",
+                  "label": {
+                    "text": "NG"
+                  },
+                  "visible": true,
+                  "hiddenInLegend": false,
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "data": {
+                    "source": "op",
+                    "x": "op",
+                    "y": "ng"
+                  },
+                  "xAxis": "x",
+                  "yAxis": "y",
+                  "zIndex": 0,
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "{name}: [bold]{valueY}[/]",
+                    "cornerRadius": 3,
+                    "pointerLength": 4,
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    }
+                  },
+                  "render": "column",
+                  "candlestick": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "column": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "fill": {
+                        "color": "#1F6FA8",
+                        "opacity": 1
+                      },
+                      "stroke": {
+                        "color": "#1F6FA8",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "stacked": false,
+                      "width": 0.55,
+                      "height": null,
+                      "cornerRadius": {
+                        "topLeft": 0,
+                        "topRight": 0,
+                        "bottomLeft": 0,
+                        "bottomRight": 0
+                      },
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "heatRules": {
+                        "enabled": false,
+                        "max": "",
+                        "min": "",
+                        "dataField": ""
+                      }
+                    }
+                  },
+                  "line": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 2,
+                        "opacity": 1,
+                        "color": "#1F6FA8",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": "#1F6FA8"
+                      },
+                      "bullets": [
+                        {
+                          "enabled": true,
+                          "render": "circle",
+                          "width": 8,
+                          "height": 8,
+                          "label": {
+                            "text": "",
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            }
+                          },
+                          "tooltip": {
+                            "enabled": true,
+                            "text": "{name}: [bold]{valueY}[/]",
+                            "cornerRadius": 3,
+                            "pointerLength": 4,
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            }
+                          },
+                          "fill": {
+                            "color": "#1F6FA8",
+                            "opacity": 1
+                          },
+                          "stroke": {
+                            "color": "#1F6FA8",
+                            "width": 1,
+                            "opacity": 1
+                          },
+                          "rotation": 0,
+                          "anchor": {
+                            "horizontal": "center",
+                            "vertical": "middle"
+                          },
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            },
+                            "rotation": ""
+                          },
+                          "heatRules": {
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2,
+                            "dataField": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "stepLine": {
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "appearance": {
+                      "connect": true,
+                      "tensionX": 1,
+                      "tensionY": 1,
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "width": 3,
+                        "opacity": 1,
+                        "color": "",
+                        "dashArray": ""
+                      },
+                      "fill": {
+                        "opacity": 0,
+                        "color": ""
+                      },
+                      "bullets": []
+                    }
+                  }
+                }
+              ],
+              "legend": {
+                "enabled": false,
+                "position": "bottom"
+              },
+              "cursor": {
+                "enabled": false,
+                "lineX": {
+                  "enabled": true
+                },
+                "lineY": {
+                  "enabled": false
+                }
+              },
+              "style": {
+                "backgroundColor": "transparent"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.dataSources.op": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.opPerformance"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "TopDefects"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.36875,
+          "y": 0.60556,
+          "width": 0.3,
+          "height": 0.18667
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Top 5 Defects",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "padding": "4px 8px"
+              }
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Bars"
+            },
+            "props": {
+              "path": "HUB4x4/Components/BarRow",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "justifyContent": "space-around"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.topDefects"
+                  },
+                  "transforms": [
+                    {
+                      "type": "script",
+                      "code": "\tout = []\n\trows = value or []\n\tmx = max([r['pct'] for r in rows] or [1])\n\tfor r in rows:\n\t\tout.append({'name': r['name'], 'value': r['pct'], 'max': 100, 'text': '%s%%' % r['pct']})\n\treturn out"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "RepairCause"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "4px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.35)",
+            "overflow": "hidden"
+          }
+        },
+        "position": {
+          "x": 0.36875,
+          "y": 0.80222,
+          "width": 0.3,
+          "height": 0.18667
+        },
+        "children": [
+          {
+            "type": "ia.display.label",
+            "version": 0,
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "text": "Repair cause",
+              "style": {
+                "color": "#1F2D3D",
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "padding": "4px 8px"
+              }
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Bars"
+            },
+            "props": {
+              "path": "HUB4x4/Components/BarRow",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "justifyContent": "space-around"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.repairCause"
+                  },
+                  "transforms": [
+                    {
+                      "type": "script",
+                      "code": "\tout = []\n\trows = value or []\n\tmx = max([r['value'] for r in rows] or [1])\n\tfor r in rows:\n\t\tout.append({'name': r['name'], 'value': r['value'], 'max': mx, 'text': str(r['value'])})\n\treturn out"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ia.container.flex",
+        "version": 0,
+        "meta": {
+          "name": "AbnormalList"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#CFEFFB",
+            "borderRadius": "4px"
+          }
+        },
+        "position": {
+          "x": 0.675,
+          "y": 0.60556,
+          "width": 0.3125,
+          "height": 0.38333
+        },
+        "children": [
+          {
+            "type": "ia.container.flex",
+            "version": 0,
+            "meta": {
+              "name": "HeadWrap"
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "padding": "8px"
+              }
+            },
+            "position": {
+              "basis": "56px",
+              "grow": 0,
+              "shrink": 0
+            },
+            "children": [
+              {
+                "type": "ia.display.label",
+                "version": 0,
+                "meta": {
+                  "name": "Head"
+                },
+                "props": {
+                  "text": "Abnormal List ( NG + Repair )",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": "20px",
+                    "textAlign": "center",
+                    "backgroundImage": "linear-gradient(#B24AC9, #8E2BA8)",
+                    "borderRadius": "4px",
+                    "boxShadow": "0 2px 4px rgba(0,0,0,0.35)"
+                  }
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 1,
+                  "shrink": 1
+                }
+              }
+            ]
+          },
+          {
+            "type": "ia.display.flex-repeater",
+            "version": 0,
+            "meta": {
+              "name": "Items"
+            },
+            "props": {
+              "path": "HUB4x4/Components/AbnormalItem",
+              "direction": "column",
+              "instances": [],
+              "useDefaultViewWidth": false,
+              "useDefaultViewHeight": true,
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "style": {
+                "overflowY": "auto"
+              }
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "type": "property",
+                  "config": {
+                    "path": "view.custom.data.abnormal"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.period": {
+      "persistent": true
+    },
+    "custom.selectedPoint": {
+      "persistent": true
+    },
+    "custom.startDate": {
+      "persistent": true
+    },
+    "custom.endDate": {
+      "persistent": true
+    },
+    "custom.data": {
+      "persistent": true,
+      "binding": {
+        "type": "expr-struct",
+        "config": {
+          "struct": {
+            "period": "{view.custom.period}",
+            "start": "{view.custom.startDate}",
+            "end": "{view.custom.endDate}",
+            "point": "{view.custom.selectedPoint}",
+            "tick": "now(10000)"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "type": "script",
+            "code": "\treturn hub4x4.data.getDashboard(value['period'], value['start'], value['end'], value['point'])"
+          }
+        ]
+      }
+    }
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\thub4x4.data.applyPeriod(self, 'Daily')"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  }
+}
